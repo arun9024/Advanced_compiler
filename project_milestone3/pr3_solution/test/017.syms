@@ -1,0 +1,5 @@
+Program {append, bool2int, bool2string, foo, int2bool, int2string, length, main, newArray, newRecord, print, range, size, string2bool, string2int, stringEqual}
+  FunDef foo {a0, a1, a2, a3, a4, a5, a6, a7, a8, a9}
+    RecordType {a0, a1, a2, a3, a4, a5, a6, a7, a8, a9}
+  FunDef main {}
+    RecordType {}

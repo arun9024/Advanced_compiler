@@ -1,0 +1,64 @@
+Code Generator for Compilers Fall 2015
+
+New java files added after project_milestone 4 are:
+	
+	script                  # Translate the *.java files to *.class files
+		      	        and print Code Generated for an input file
+        cleanup                 # Clean up intermediate files
+        
+        LableCounter            # To count labels
+        ProgramStack
+        RegisterAllocator.java
+        SBGenerator.java        # To generate assembly
+        SBPrinter.java          # To visit nodes and print assembly
+
+    	    
+The script includes following commands:
+1) java -jar /usr/local/lib/antlr-4.5-complete.jar \ -no-listener -no-visitor Tack.g4
+2) javac -g -cp /usr/local/lib/antlr-4.5-complete.jar -Xlint:unchecked *.java
+3) java -ea -cp .:/usr/local/lib/antlr-4.5-complete.jar Main 001.tack
+
+The cleanup file includes:
+1. rm TackParser.java *.class
+
+To compile and run, do the following:
+1. Use script for Code Generation
+   ./script  
+
+2. Use cleanup to clean up intermediate files:
+   ./cleanup
+
+For example, given the following input file:
+
+        # Hello-world
+	        main = fun () -> int {
+  	        print("Hello, world!\n");
+  	        -> 0;
+	}
+
+The SBGenerator will print the following output:
+        .intel_syntax
+        .section .rodata
+            main.S_0:
+                .string     "Hello, world!\n"
+        .text
+                .global     main
+                .type       main,   @function
+            main:
+                push %rbp
+                mov %rbp, %rsp
+                mov %rdi, OFFSET FLAT:main.S_0
+                call print
+            L_main0:
+                mov %rax, 0
+                mov %rsp, %rbp
+                pop %rbp
+                ret
+            L_main:
+                mov %rax, 0
+                mov %rsp, %rbp
+                pop %rbp
+                ret
+
+gcc -m64 -masm=intel -o hello hello.s x64runtime.c
+

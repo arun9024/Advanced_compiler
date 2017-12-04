@@ -1,0 +1,84 @@
+sort = fun (a : [int]) -> void
+  param[0 : 1] = a;
+  t = call size : 1;
+  n = t;
+ L_sort0:
+  t0 = n - 1;
+  param[0 : 2] = 0;
+  param[1 : 2] = t0;
+  t1 = call range : 2;
+  param[0 : 1] = t1;
+  t2 = call size : 1;
+  t3 = 0;
+ L_sort1:
+  if t3 >= t2 goto L_sort;
+  iOuter = t1[t3];
+  iSmallest = iOuter;
+ L_sort3:
+  param[0 : 2] = iOuter;
+  param[1 : 2] = n;
+  t4 = call range : 2;
+  param[0 : 1] = t4;
+  t5 = call size : 1;
+  t6 = 0;
+ L_sort5:
+  if t6 >= t5 goto L_sort4;
+  iInner = t4[t6];
+  t7 = a[iInner];
+  t8 = a[iSmallest];
+  if t7 < t8 goto L_sort7;
+  goto L_sort6;
+ L_sort7:
+  iSmallest = iInner;
+ L_sort6:
+  t6 = t6 + 1;
+  goto L_sort5;
+ L_sort4:
+  t9 = a[iSmallest];
+  eSmallest = t9;
+ L_sort8:
+  t10 = a[iOuter];
+  a[iSmallest] = t10;
+ L_sort9:
+  a[iOuter] = eSmallest;
+ L_sort2:
+  t3 = t3 + 1;
+  goto L_sort1;
+ L_sort:
+  return;
+
+main = fun () -> int
+  param[0 : 2] = sizeof([int]);
+  param[1 : 2] = 4;
+  t = call newArray : 2;
+  t[0] = 2;
+  t[1] = 0;
+  t[2] = 1;
+  t[3] = 2;
+  a = t;
+ L_main0:
+  param[0 : 1] = a;
+  call sort : 1;
+ L_main1:
+  param[0 : 1] = a;
+  t0 = call size : 1;
+  t1 = 0;
+ L_main3:
+  if t1 >= t0 goto L_main2;
+  e = a[t1];
+  t2 = e : string;
+  param[0 : 2] = " ";
+  param[1 : 2] = t2;
+  t3 = call append : 2;
+  param[0 : 1] = t3;
+  call print : 1;
+ L_main4:
+  t1 = t1 + 1;
+  goto L_main3;
+ L_main2:
+  param[0 : 1] = "\n";
+  call print : 1;
+ L_main5:
+  return 0;
+ L_main:
+  return 0;

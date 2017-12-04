@@ -1,0 +1,61 @@
+Intermediate Representation for
+Compilers Fall 2015
+
+It consists following Java files:
+	
+        README                  # This file
+	script                  # Translate the *.java files to *.class files
+		      	        and print Intermediate Representation for an input file
+        cleanup                 # Clean up intermediate files
+   	001.tack		# Input file1
+        Main.java               # Driver program
+        Location.java
+        Tack.g4                 # Grammar with semantic actions
+        AstNode.java            # All the AST node classes
+        Visitor.java            # Superclass for tree traversal
+        SyntaxTreePrinter.java  # AST printer
+        TreeNormalizer.java     # AST normalizer
+        SymbolTable.java        # All the Symbol classes
+        SemanticAnalyser.java   # Semantic analysis
+        ScopeAnalyser.java	# Scopes        
+        Intrinsics.java	        # Intrinsics definition
+        DepthFirstVisitor.java  
+        ErrorPrinter.java	 
+        PrettyPrinter.java
+        IRGenerator.java        # Generate Intermediate Representation
+        IRPrinter.java          # Print Intermediate Representation
+        IRVisitor.java
+        Instruction.java
+    	    
+The script includes following commands:
+1) java -jar /usr/local/lib/antlr-4.5-complete.jar \ -no-listener -no-visitor Tack.g4
+2) javac -g -cp /usr/local/lib/antlr-4.5-complete.jar -Xlint:unchecked *.java
+3) java -ea -cp .:/usr/local/lib/antlr-4.5-complete.jar Main 001.in
+
+The cleanup file includes:
+1. rm TackParser.java *.class
+
+To compile and run, do the following:
+1. Use script for Intermediate Representation
+   ./script  
+
+2. Use cleanup to clean up intermediate files:
+   rm TackParser.java *.class
+
+For example, given the following input file:
+
+        # Hello-world
+	        main = fun () -> int {
+  	        print("Hello, world!\n");
+  	        -> 0;
+	}
+
+The IRGenerator  will print the following output:i
+       
+        main = fun () -> int
+          param[0 : 1] = "Hello, world!\n";
+          call print : 1;
+         L_main0:
+          return 0;
+         L_main:
+          return 0;

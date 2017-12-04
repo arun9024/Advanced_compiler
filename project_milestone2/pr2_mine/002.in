@@ -1,0 +1,9 @@
+main = fun () -> int { 
+    a = "outer a";
+    b = "outer b";
+    {
+                a = "inner a";
+                                b := "inner b";
+    }
+    print("a == ’" + a + "’, b == ’" + b + "’\n"); -> 0;
+}

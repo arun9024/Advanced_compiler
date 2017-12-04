@@ -1,0 +1,39 @@
+ping = fun (i : int) -> int
+  if i > 0 goto L_ping1;
+  goto L_ping0;
+ L_ping1:
+  t = i - 1;
+  param[0 : 1] = t;
+  t0 = call pong : 1;
+  return t0;
+ L_ping0:
+  return 1;
+ L_ping:
+  return 0;
+
+pong = fun (i : int) -> int
+  if i > 0 goto L_pong1;
+  goto L_pong0;
+ L_pong1:
+  t = i - 1;
+  param[0 : 1] = t;
+  t0 = call ping : 1;
+  return t0;
+ L_pong0:
+  return 0;
+ L_pong:
+  return 0;
+
+main = fun () -> int
+  param[0 : 1] = 5;
+  t0 = call ping : 1;
+  t = t0 : string;
+  param[0 : 2] = t;
+  param[1 : 2] = "\n";
+  t1 = call append : 2;
+  param[0 : 1] = t1;
+  call print : 1;
+ L_main0:
+  return 0;
+ L_main:
+  return 0;

@@ -1,0 +1,2 @@
+recursiveFactorial(5) == 120
+iterativeFactorial(5) == 120

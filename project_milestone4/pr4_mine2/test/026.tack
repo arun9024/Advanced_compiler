@@ -1,0 +1,9 @@
+# Memory access example for hw7
+main = fun () -> int {
+  r = (f = 1);
+  a = [ r ];
+  a[0].f := 2;
+  i = a[0].f;
+  print("i == '" + i + "'\n");
+  -> 0;
+}

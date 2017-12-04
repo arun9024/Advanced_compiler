@@ -1,0 +1,59 @@
+recursiveFactorial = fun (i : int) -> int
+  if 1 >= i goto L_recursiveFactorial1;
+  goto L_recursiveFactorial0;
+ L_recursiveFactorial1:
+  return 1;
+ L_recursiveFactorial0:
+  t = i - 1;
+  param[0 : 1] = t;
+  t0 = call recursiveFactorial : 1;
+  t1 = i * t0;
+  return t1;
+ L_recursiveFactorial:
+  return 0;
+
+iterativeFactorial = fun (i : int) -> int
+  result = 1;
+ L_iterativeFactorial0: L_iterativeFactorial3:
+  if 1 <= i goto L_iterativeFactorial2;
+  goto L_iterativeFactorial1;
+ L_iterativeFactorial2:
+  t = result * i;
+  result = t;
+ L_iterativeFactorial4:
+  t0 = i - 1;
+  i = t0;
+  goto L_iterativeFactorial3;
+ L_iterativeFactorial1:
+  return result;
+ L_iterativeFactorial:
+  return 0;
+
+main = fun () -> int
+  param[0 : 1] = 5;
+  t0 = call recursiveFactorial : 1;
+  t = t0 : string;
+  param[0 : 2] = "recursiveFactorial(5) == ";
+  param[1 : 2] = t;
+  t1 = call append : 2;
+  param[0 : 2] = t1;
+  param[1 : 2] = "\n";
+  t2 = call append : 2;
+  param[0 : 1] = t2;
+  call print : 1;
+ L_main0:
+  param[0 : 1] = 5;
+  t4 = call iterativeFactorial : 1;
+  t3 = t4 : string;
+  param[0 : 2] = "iterativeFactorial(5) == ";
+  param[1 : 2] = t3;
+  t5 = call append : 2;
+  param[0 : 2] = t5;
+  param[1 : 2] = "\n";
+  t6 = call append : 2;
+  param[0 : 1] = t6;
+  call print : 1;
+ L_main1:
+  return 0;
+ L_main:
+  return 0;

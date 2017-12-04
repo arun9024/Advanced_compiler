@@ -1,0 +1,8 @@
+# While-false loop
+main = fun () -> int {
+ a=-5;
+ while(false){
+   print(a:string+"\n");
+ }
+ -> 0;
+}

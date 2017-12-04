@@ -1,0 +1,198 @@
+Program
+  FunDef
+    FunId insert
+    FunType
+      RecordType
+        FieldType
+          FieldId v
+          PrimitiveType int
+        FieldType
+          FieldId ls
+          RecordType
+            FieldType
+              FieldId hd
+              RecordType
+                FieldType
+                  FieldId val
+                  PrimitiveType int
+                FieldType
+                  FieldId next
+                  RecordType
+      PrimitiveType void
+    BlockStmt
+      IfStmt
+        InfixExpr ||
+          InfixExpr ==
+            NullLit
+            FieldExpr
+              VarId ls
+              FieldId hd
+          InfixExpr <
+            VarId v
+            FieldExpr
+              FieldExpr
+                VarId ls
+                FieldId hd
+              FieldId val
+        BlockStmt
+          AssignStmt
+            FieldExpr
+              VarId ls
+              FieldId hd
+            RecordLit
+              FieldLit
+                FieldId val
+                VarId v
+              FieldLit
+                FieldId next
+                CastExpr
+                  FieldExpr
+                    VarId ls
+                    FieldId hd
+                  RecordType
+        BlockStmt
+          VarDef
+            VarId x
+            FieldExpr
+              VarId ls
+              FieldId hd
+          WhileStmt
+            BoolLit true
+            BlockStmt
+              VarDef
+                VarId y
+                CastExpr
+                  FieldExpr
+                    VarId x
+                    FieldId next
+                  RecordType
+                    FieldType
+                      FieldId val
+                      PrimitiveType int
+                    FieldType
+                      FieldId next
+                      RecordType
+              IfStmt
+                InfixExpr ||
+                  InfixExpr ==
+                    NullLit
+                    FieldExpr
+                      VarId x
+                      FieldId next
+                  InfixExpr <
+                    VarId v
+                    FieldExpr
+                      VarId y
+                      FieldId val
+                BlockStmt
+                  AssignStmt
+                    FieldExpr
+                      VarId x
+                      FieldId next
+                    RecordLit
+                      FieldLit
+                        FieldId val
+                        VarId v
+                      FieldLit
+                        FieldId next
+                        CastExpr
+                          VarId y
+                          RecordType
+                  ReturnStmt
+              AssignStmt
+                VarId x
+                VarId y
+  FunDef
+    FunId printList
+    FunType
+      RecordType
+        FieldType
+          FieldId ls
+          RecordType
+            FieldType
+              FieldId hd
+              RecordType
+                FieldType
+                  FieldId val
+                  PrimitiveType int
+                FieldType
+                  FieldId next
+                  RecordType
+      PrimitiveType void
+    BlockStmt
+      VarDef
+        VarId x
+        FieldExpr
+          VarId ls
+          FieldId hd
+      WhileStmt
+        InfixExpr !=
+          NullLit
+          VarId x
+        BlockStmt
+          CallStmt
+            CallExpr
+              FunId print
+              InfixExpr +
+                StringLit " "
+                FieldExpr
+                  VarId x
+                  FieldId val
+          AssignStmt
+            VarId x
+            CastExpr
+              FieldExpr
+                VarId x
+                FieldId next
+              RecordType
+                FieldType
+                  FieldId val
+                  PrimitiveType int
+                FieldType
+                  FieldId next
+                  RecordType
+      CallStmt
+        CallExpr
+          FunId print
+          StringLit "\n"
+  FunDef
+    FunId main
+    FunType
+      RecordType
+      PrimitiveType int
+    BlockStmt
+      VarDef
+        VarId list
+        RecordLit
+          FieldLit
+            FieldId hd
+            CastExpr
+              NullLit
+              RecordType
+                FieldType
+                  FieldId val
+                  PrimitiveType int
+                FieldType
+                  FieldId next
+                  RecordType
+      CallStmt
+        CallExpr
+          FunId insert
+          IntLit 3
+          VarId list
+      CallStmt
+        CallExpr
+          FunId insert
+          IntLit 1
+          VarId list
+      CallStmt
+        CallExpr
+          FunId insert
+          IntLit 4
+          VarId list
+      CallStmt
+        CallExpr
+          FunId printList
+          VarId list
+      ReturnStmt
+        IntLit 0

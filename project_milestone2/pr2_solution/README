@@ -1,0 +1,51 @@
+Example Solutions for
+Advanced Compilers Fall 2015 pr2
+
+Project Milestone 2: AST generator
+
+These are example solutions. Please keep in mind that often, there is
+not just one correct solution to a question. If you come up with
+different answers to the homework, then it may be that both your
+answers and these answers here are correct. Of course, these answers
+here may also contain mistakes; if you spot some, please let us know
+so we can correct them.
+
+The example solution consists of eight files:
+
+    README                  # this file
+    Main.java               # driver program
+    AstNode.java            # all the AST node classes
+    Tack.g4                 # grammar with semantic actions
+    Visitor.java            # Superclass for tree traversal
+    SyntaxTreePrinter.java  # AST printer
+    TreeNormalizer.java     # AST normalizer
+
+To compile and run, do the following:
+
+1. Use the parser generator to translate Tack.g4:
+
+    antlr4 Tack.g4
+
+2. Use the Java compiler to translate the *.java files to *.class files:
+
+    javac -cp /usr/local/lib/antlr-4.5.1-complete.jar *.java
+
+3. Use the AST generator to print an AST for a .tack file:
+
+    mkdir -p tmp
+
+    # creates a temporary directory for output files
+
+    java -cp .:/usr/local/lib/antlr-4.5.1-complete.jar Main test/001.tack > tmp/001.ast
+
+    # prints the actual output AST to file 001.ast
+
+    diff test/001.ast tmp/001.ast
+
+    # compares the expected output against the actual output
+
+4. Clean up intermediate files:
+
+    rm TackParser.java *.class
+    rm -rf tmp
+

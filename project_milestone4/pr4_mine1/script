@@ -1,0 +1,3 @@
+java -jar /usr/local/lib/antlr-4.5-complete.jar -no-listener -no-visitor Tack.g4
+javac -g -cp /usr/local/lib/antlr-4.5-complete.jar -Xlint:unchecked *.java
+java -ea -cp .:/usr/local/lib/antlr-4.5-complete.jar Main test/004.tack

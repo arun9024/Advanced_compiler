@@ -1,0 +1,13 @@
+main = fun () -> int
+  t = 1 : int;
+  a = t;
+ L_main0:
+  t0 = "x" : string;
+  b = t0;
+ L_main1:
+  t1 = true : bool;
+  c = t1;
+ L_main2:
+  return 0;
+ L_main:
+  return 0;

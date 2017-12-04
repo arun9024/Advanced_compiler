@@ -1,0 +1,22 @@
+Program
+  FunDef
+    FunId main
+    FunType
+      RecordType
+      PrimitiveType int
+    BlockStmt
+      VarDef
+        VarId a
+        ArrayLit
+      VarDef
+        VarId b
+        RecordLit
+          FieldLit
+            FieldId c
+            ArrayLit
+      VarDef
+        VarId c
+        ArrayLit
+          VarId a
+      ReturnStmt
+        IntLit 0

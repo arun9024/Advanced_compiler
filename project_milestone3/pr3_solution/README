@@ -1,0 +1,66 @@
+Example Solutions for
+Compiler Construction CSCI-GA.2130-001 Fall 2011 pr3
+Due Fr 11/11/2011 at 1pm
+
+Project Milestone 3: Semantic analyzer
+
+These are example solutions. Please keep in mind that often, there is
+not just one correct solution to a question. If you come up with
+different answers to the homework, then it may be that both your
+answers and these answers here are correct. Of course, these answers
+here may also contain mistakes; if you spot some, please let us know
+so we can correct them.
+
+The assignment was here:
+
+    http://cs.nyu.edu/courses/fall11/CSCI-GA.2130-001/pr3.pdf
+
+The example solution consists of 14 files:
+
+    README                  # this file
+    rats.jar                # parser generator, downloaded from Rats! website
+    Main.java               # driver program
+    AstNode.java            # all the AST node classes
+    Tack.rats               # grammar with semantic actions
+    Visitor.java            # superclass for un-implemented tree traversal
+    TreeNormalizer.java     # AST normalizer
+    SymbolTable.java        # symbol table
+    DepthFirstVisitor.java  # superclass for depth-first tree traversal
+    ScopeAnalyzer.java      # populate the symbol table
+    SemanticAnalyzer.java   # find types or errors
+    Intrinsics.java         # intrinsic functions
+    ErrorPrinter.java       # helper class for printing errors
+    PrettyPrinter.java      # helper class for printing source code
+
+To compile and run, do the following:
+
+1. Use the parser generator to translate from Tack.rats to TackParser.java:
+
+    java -ea -cp rats.jar xtc.parser.Rats -lgpl Tack.rats
+
+2. Use the Java compiler to translate the *.java files to *.class files:
+
+    javac -g -cp rats.jar -Xlint:unchecked *.java
+
+3. Use the semantic analyzer to print errors or symbols for a .tack file:
+
+    mkdir -p tmp
+
+    # creates a temporary directory for output files
+
+    java -ea -cp .:rats.jar Main test/022.tack > tmp/022.syms 2>&1
+
+    # prints the actual errors or symbols to file 022.syms
+
+    diff test/022.syms tmp/022.syms
+
+    # compares the expected output against the actual output
+
+4. Clean up intermediate files:
+
+    rm TackParser.java *.class
+    rm -rf tmp
+
+The example solutions are here:
+
+    http://cs.nyu.edu/courses/fall11/CSCI-GA.2130-001/pr3-example-solutions.tar

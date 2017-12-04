@@ -1,0 +1,10 @@
+# Jumping code example for hw7
+main = fun () -> int {
+  x = 0;
+  while x < 5 || x % 4 != 0 {
+    x := x + 1;
+  }
+  y = x;
+  print("y == '" + y + "'\n");
+  -> 0;
+}

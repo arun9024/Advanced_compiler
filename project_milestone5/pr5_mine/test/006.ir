@@ -1,0 +1,19 @@
+main = fun () -> int
+  a = true;
+ L_main0:
+  t = true;
+  if a goto L_main3;
+  goto L_main2;
+ L_main3:
+  t = false;
+ L_main2:
+  b = t;
+ L_main1:
+  c = 1;
+ L_main4:
+  t0 = - c;
+  d = t0;
+ L_main5:
+  return 0;
+ L_main:
+  return 0;

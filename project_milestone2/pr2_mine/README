@@ -1,0 +1,65 @@
+AST generator for
+Compilers Fall 2015
+
+It consists of eleven (11) files:
+
+    README                  # This file
+    Main.java               # Driver program
+    AstNode.java            # All the AST node classes
+    Tack.g4                 # Grammar with semantic actions
+    Visitor.java            # Superclass for tree traversal
+    SyntaxTreePrinter.java  # AST printer
+    TreeNormalizer.java     # AST normalizer
+    Location.java	    
+    002.in		    # Input file
+    script                  # Translate Tack.g4 to TackParser.java,
+			      translate the *.java files to *.class files
+			      and print an AST for an input file
+    cleanup 		    # Clean up intermediate files
+
+
+
+The script includes following commands:
+1) java -jar /usr/local/lib/antlr-4.5-complete.jar \ -no-listener -no-visitor Tack.g4
+2) javac -g -cp /usr/local/lib/antlr-4.5-complete.jar -Xlint:unchecked *.java
+3) java -ea -cp .:/usr/local/lib/antlr-4.5-complete.jar Main 001.in
+
+The cleanup file includes:
+1) rm TackParser.java *.class
+
+
+
+To compile and run, do the following:
+
+1. Use script for AST generator
+	
+   ./script  
+
+4. Use cleanup to clean up intermediate files:
+
+    rm TackParser.java *.class
+
+For example, given the following input file:
+
+    # example for AST generation
+    f = fun
+    g = fun
+
+The AST generator will print the following output:
+
+    --- Raw AST ----
+    Program
+      FunDefListHead
+        FunDef
+          FunId f
+        FunDefListTail
+          FunDef
+            FunId g
+          FunDefListTail
+    --- Normalized AST ----
+    Program
+      FunDef
+        FunId f
+      FunDef
+        FunId g
+I

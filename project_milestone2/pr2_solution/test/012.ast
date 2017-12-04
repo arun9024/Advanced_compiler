@@ -1,0 +1,35 @@
+Program
+  FunDef
+    FunId main
+    FunType
+      RecordType
+      PrimitiveType int
+    BlockStmt
+      AssignStmt
+        VarId a
+        IntLit 1
+      CallStmt
+        CallExpr
+          FunId b
+          StringLit "hello"
+      VarDef
+        VarId c
+        RecordLit
+          FieldLit
+            FieldId d
+            StringLit "world"
+      CallStmt
+        CallExpr
+          FunId print
+          FieldExpr
+            VarId c
+            FieldId e
+      CallStmt
+        CallExpr
+          FunId c
+          StringLit "hello"
+      AssignStmt
+        VarId main
+        IntLit 2
+      ReturnStmt
+        IntLit 0

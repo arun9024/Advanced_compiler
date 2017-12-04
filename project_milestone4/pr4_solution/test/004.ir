@@ -1,0 +1,47 @@
+main = fun () -> int
+  a = 1;
+ L_main0:
+  t = true;
+  if a < 0 goto L_main2;
+  goto L_main4;
+ L_main4:
+  if a > 10 goto L_main2;
+  goto L_main3;
+ L_main3:
+  t = false;
+ L_main2:
+  b = t;
+ L_main1:
+  t0 = true;
+  if a >= 0 goto L_main8;
+  goto L_main7;
+ L_main8:
+  if a <= 10 goto L_main6;
+  goto L_main7;
+ L_main7:
+  t0 = false;
+ L_main6:
+  c = t0;
+ L_main5:
+  t1 = true;
+  t2 = a + 1;
+  t3 = 2 * a;
+  t4 = t3 - 1;
+  if t2 < t4 goto L_main12;
+  goto L_main11;
+ L_main12:
+  if a != 9 goto L_main10;
+  goto L_main11;
+ L_main11:
+  t1 = false;
+ L_main10:
+  d = t1;
+ L_main9:
+  t5 = a / 7;
+  t6 = a % 5;
+  t7 = t5 + t6;
+  e = t7;
+ L_main13:
+  return 0;
+ L_main:
+  return 0;

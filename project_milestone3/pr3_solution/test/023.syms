@@ -1,0 +1,2 @@
+test/023.tack:3:7: Cannot cast from type '[]' to type 'int'.
+There was 1 error.

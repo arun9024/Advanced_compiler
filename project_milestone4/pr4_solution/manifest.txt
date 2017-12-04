@@ -1,0 +1,3 @@
+Main-Class: IRInterpreter
+class-path: /usr/local/lib/antlr-4.5.1-complete.jar
+

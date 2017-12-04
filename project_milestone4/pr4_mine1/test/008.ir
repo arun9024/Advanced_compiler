@@ -1,0 +1,55 @@
+main = fun () -> int
+  x = 1;
+ L_main0:
+  t = x + 1;
+  x = t;
+ L_main1:
+  goto L_main3;
+ L_main3:
+  param[0 : 1] = "a\n";
+  call print : 1;
+  goto L_main2;
+ L_main4:
+  param[0 : 1] = "b\n";
+  call print : 1;
+ L_main2: L_main8:
+  goto L_main6;
+ L_main7:
+  param[0 : 1] = "c\n";
+  call print : 1;
+  goto L_main8;
+ L_main6:
+  param[0 : 2] = sizeof([string]);
+  param[1 : 2] = 3;
+  t0 = call newArray : 2;
+  t0[0] = "e";
+  t0[1] = "f";
+  t0[2] = "g";
+  param[0 : 1] = t0;
+  t1 = call size : 1;
+  t2 = 0;
+ L_main9:
+  if t2 >= t1 goto L_main5;
+  x0 = t0[t2];
+  param[0 : 1] = x0;
+  call print : 1;
+ L_main10:
+  t2 = t2 + 1;
+  goto L_main9;
+ L_main5: L_main13:
+  goto L_main12;
+ L_main12:
+  param[0 : 1] = "h\n";
+  call print : 1;
+ L_main14:
+  goto L_main15;
+ L_main15:
+  param[0 : 1] = "i\n";
+  call print : 1;
+ L_main16:
+  return 0;
+  goto L_main13;
+ L_main11:
+  return 0;
+ L_main:
+  return 0;

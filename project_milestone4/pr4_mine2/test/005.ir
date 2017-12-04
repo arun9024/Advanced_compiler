@@ -1,0 +1,22 @@
+main = fun () -> int
+  t = 1 + 2;
+  a = t;
+ L_main0:
+  param[0 : 2] = sizeof([int]);
+  param[1 : 2] = 2;
+  t0 = call newArray : 2;
+  t0[0] = 1;
+  t0[1] = 2;
+  b = t0;
+ L_main1:
+  param[0 : 1] = sizeof((f : int, g : int));
+  t1 = call newRecord : 1;
+  t1.f = 1;
+  t1.g = 2;
+  c = t1;
+ L_main2:
+  d = c;
+ L_main3:
+  return 0;
+ L_main:
+  return 0;

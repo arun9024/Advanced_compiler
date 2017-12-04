@@ -1,0 +1,44 @@
+main = fun () -> int
+  param[0 : 2] = sizeof([int]);
+  param[1 : 2] = 2;
+  t0 = call newArray : 2;
+  t0[0] = 1;
+  t0[1] = 2;
+  t = t0 : [int];
+  a = t;
+ L_main0:
+  param[0 : 1] = sizeof((x : int, y : string));
+  t2 = call newRecord : 1;
+  t2.x = 1;
+  t2.y = "Y";
+  t1 = t2 : (x : int, y : string);
+  b = t1;
+ L_main1:
+  param[0 : 1] = sizeof((z : [int], q : (r : [int], s : int)));
+  t4 = call newRecord : 1;
+  param[0 : 2] = sizeof([int]);
+  param[1 : 2] = 3;
+  t5 = call newArray : 2;
+  t5[0] = 1;
+  t5[1] = 2;
+  t5[2] = 3;
+  t4.z = t5;
+  param[0 : 1] = sizeof((r : [int], s : int));
+  t6 = call newRecord : 1;
+  param[0 : 2] = sizeof([int]);
+  param[1 : 2] = 2;
+  t7 = call newArray : 2;
+  t7[0] = 4;
+  t7[1] = 5;
+  t6.r = t7;
+  t6.s = 6;
+  t4.q = t6;
+  t3 = t4 : (z : [int], q : (r : [int], s : int));
+  c = t3;
+ L_main2:
+  t8 = null : (x : int, y : string);
+  d = t8;
+ L_main3:
+  return 0;
+ L_main:
+  return 0;

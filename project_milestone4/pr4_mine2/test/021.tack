@@ -1,0 +1,32 @@
+# Sorted linked list
+insert = fun (v : int, ls : (hd : (val : int, next : ()))) -> void {
+  if null == ls.hd || v < ls.hd.val {
+    ls.hd := (val=v, next=ls.hd : ());
+  } else {
+    x = ls.hd;
+    while true {
+      y = x.next : (val : int, next : ());
+      if null == x.next || v < y.val {
+        x.next := (val=v, next=y : ());
+        ->;
+      }
+      x := y;
+    }
+  }
+}
+printList = fun (ls : (hd : (val : int, next : ()))) -> void {
+  x = ls.hd;
+  while null != x {
+    print(" " + x.val);
+    x := x.next : (val : int, next : ());
+  }
+  print("\n");
+}
+main = fun () -> int {
+  list = (hd=null : (val : int, next : ()));
+  insert(3, list);
+  insert(1, list);
+  insert(4, list);
+  printList(list);
+  -> 0;
+}

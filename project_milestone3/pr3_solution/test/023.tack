@@ -1,0 +1,5 @@
+# Illegal cast
+main = fun () -> int {
+  a = [ ] : int;
+  -> 0;
+}

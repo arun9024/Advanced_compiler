@@ -1,0 +1,29 @@
+Program {append, bool2int, bool2string, insert, int2bool, int2string, length, main, newArray, newRecord, print, printList, range, size, string2bool, string2int, stringEqual}
+  FunDef insert {ls, v}
+    RecordType {ls, v}
+      RecordType {hd}
+        RecordType {next, val}
+          RecordType {}
+    BlockStmt {}
+      RecordLit {next, val}
+        RecordType {}
+    BlockStmt {x}
+      BlockStmt {y}
+        RecordType {next, val}
+          RecordType {}
+        BlockStmt {}
+          RecordLit {next, val}
+            RecordType {}
+  FunDef printList {ls, x}
+    RecordType {ls}
+      RecordType {hd}
+        RecordType {next, val}
+          RecordType {}
+    BlockStmt {}
+      RecordType {next, val}
+        RecordType {}
+  FunDef main {list}
+    RecordType {}
+    RecordLit {hd}
+      RecordType {next, val}
+        RecordType {}

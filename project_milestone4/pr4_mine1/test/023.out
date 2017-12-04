@@ -1,0 +1,1 @@
+a == 'outer a', b == 'inner b'

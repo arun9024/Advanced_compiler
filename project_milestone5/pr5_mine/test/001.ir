@@ -1,0 +1,7 @@
+main = fun () -> int
+  param[0 : 1] = "Hello, world!\n";
+  call print : 1;
+ L_main0:
+  return 0;
+ L_main:
+  return 0;

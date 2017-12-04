@@ -1,0 +1,82 @@
+eval = fun (expr : (o : string)) -> int
+  t = expr.o;
+  param[0 : 2] = "+";
+  param[1 : 2] = t;
+  t0 = call stringEqual : 2;
+  if t0 goto L_eval1;
+  goto L_eval0;
+ L_eval1:
+  t1 = expr : (o : string, l : (o : string), r : (o : string));
+  e = t1;
+ L_eval2:
+  t2 = e.l;
+  param[0 : 1] = t2;
+  t3 = call eval : 1;
+  t4 = e.r;
+  param[0 : 1] = t4;
+  t5 = call eval : 1;
+  t6 = t3 + t5;
+  return t6;
+ L_eval0:
+  t7 = expr.o;
+  param[0 : 2] = "-";
+  param[1 : 2] = t7;
+  t8 = call stringEqual : 2;
+  if t8 goto L_eval4;
+  goto L_eval3;
+ L_eval4:
+  t9 = expr : (o : string, l : (o : string), r : (o : string));
+  e0 = t9;
+ L_eval5:
+  t10 = e0.l;
+  param[0 : 1] = t10;
+  t11 = call eval : 1;
+  t12 = e0.r;
+  param[0 : 1] = t12;
+  t13 = call eval : 1;
+  t14 = t11 - t13;
+  return t14;
+ L_eval3:
+  t16 = expr.o;
+  t15 = t16 : int;
+  return t15;
+ L_eval:
+  return 0;
+
+main = fun () -> int
+  param[0 : 1] = sizeof((o : string, l : (o : string, l : (o : string), r : (o : string)), r : (o : string)));
+  t = call newRecord : 1;
+  t.o = "+";
+  param[0 : 1] = sizeof((o : string, l : (o : string), r : (o : string)));
+  t0 = call newRecord : 1;
+  t0.o = "-";
+  param[0 : 1] = sizeof((o : string));
+  t1 = call newRecord : 1;
+  t1.o = "5";
+  t0.l = t1;
+  param[0 : 1] = sizeof((o : string));
+  t2 = call newRecord : 1;
+  t2.o = "3";
+  t0.r = t2;
+  t.l = t0;
+  param[0 : 1] = sizeof((o : string));
+  t3 = call newRecord : 1;
+  t3.o = "2";
+  t.r = t3;
+  tree = t;
+ L_main0:
+  t4 = tree : (o : string);
+  param[0 : 1] = t4;
+  t5 = call eval : 1;
+  result = t5;
+ L_main1:
+  t6 = result : string;
+  param[0 : 2] = t6;
+  param[1 : 2] = "\n";
+  t7 = call append : 2;
+  param[0 : 1] = t7;
+  call print : 1;
+ L_main2:
+  return 0;
+ L_main:
+  return 0;

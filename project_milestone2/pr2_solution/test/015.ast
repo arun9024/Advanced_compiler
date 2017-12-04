@@ -1,0 +1,53 @@
+Program
+  FunDef
+    FunId main
+    FunType
+      RecordType
+      PrimitiveType int
+    BlockStmt
+      VarDef
+        VarId a
+        RecordLit
+          FieldLit
+            FieldId x
+            IntLit 1
+          FieldLit
+            FieldId y
+            IntLit 2
+      AssignStmt
+        VarId a
+        RecordLit
+          FieldLit
+            FieldId x
+            IntLit 1
+      ForStmt
+        VarId i
+        VarId a
+        BlockStmt
+          CallStmt
+            CallExpr
+              FunId print
+              StringLit "hola"
+      ForStmt
+        VarId i
+        ArrayLit
+        BlockStmt
+          CallStmt
+            CallExpr
+              FunId print
+              StringLit "nihau"
+      IfStmt
+        IntLit 0
+        BlockStmt
+          CallStmt
+            CallExpr
+              FunId print
+              StringLit "namaskar"
+      WhileStmt
+        IntLit 1
+        BlockStmt
+          CallStmt
+            CallExpr
+              FunId print
+              StringLit "hallo"
+      ReturnStmt
